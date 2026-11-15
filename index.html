@@ -1,146 +1,142 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8">
+<html lang="ru">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документация — Крестики и нолики</title>
 <style>
-:root { --bg:#f5f7fb; --card:#fff; --ink:#23304a; --muted:#6c778c; --accent:#4f7cff; }
-* { box-sizing:border-box; }
-body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-        background:var(--bg); color:var(--ink); }
-header { background:#2f3b52; color:#fff; padding:42px 24px; }
-header .wrap { max-width:1100px; margin:0 auto; }
-header h1 { margin:0 0 8px; font-size:30px; }
-header p { margin:0; color:#c9d3e6; }
-main { max-width:1100px; margin:0 auto; padding:28px 24px 60px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; }
-.card { background:var(--card); border:1px solid #dbe2ef; border-radius:14px;
-         padding:20px; display:flex; flex-direction:column; }
-.code { font-size:12px; color:var(--accent); font-weight:700; letter-spacing:.4px;
-         text-transform:uppercase; }
-.card h2 { font-size:19px; margin:8px 0; }
-.card p { color:var(--muted); font-size:14px; line-height:1.45; flex:1; }
-.links { display:flex; gap:14px; margin-top:14px; }
-.links a { color:var(--accent); text-decoration:none; font-weight:600; font-size:14px; }
-.links a:hover { text-decoration:underline; }
-footer { max-width:1100px; margin:0 auto; padding:0 24px 40px; color:var(--muted);
-          font-size:13px; }
-</style></head>
+:root {
+  --bg: #1e1e1e;
+  --panel: #252526;
+  --panel-2: #2a2a2b;
+  --border: #3a3a3a;
+  --text: #d4d4d4;
+  --muted: #969696;
+  --link: #c7d0dc;
+  --hover: #303030;
+  --active: #333333;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 280px;
+  flex: 0 0 280px;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  padding: 26px 14px 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar .brand {
+  margin: 0 10px 4px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.sidebar .project {
+  margin: 0 10px 22px;
+  color: #e6e6e6;
+  font-size: 16px;
+  font-weight: 600;
+}
+.sidebar .section {
+  margin: 16px 10px 8px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.file {
+  display: block;
+  padding: 7px 10px;
+  border-left: 2px solid transparent;
+  border-radius: 3px;
+}
+.file:hover { background: var(--hover); text-decoration: none; }
+.file.active { background: var(--active); border-left-color: #9aa7b8; }
+.file .code {
+  display: block;
+  color: var(--muted);
+  font: 11px/1.25 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.file .name { display: block; margin-top: 2px; color: var(--text); font-size: 13px; }
+.sidebar .meta {
+  margin: 24px 10px 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.content { flex: 1; min-width: 0; }
+.content-inner { max-width: 860px; margin: 0 auto; padding: 46px 40px 80px; }
+.breadcrumb { margin-bottom: 24px; color: var(--muted); font-size: 12px; }
+.breadcrumb a { color: var(--muted); }
+h1 { margin: 0 0 24px; color: #e8e8e8; font-size: 30px; line-height: 1.25; font-weight: 650; }
+h2 { margin: 36px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); color: #e0e0e0; font-size: 21px; line-height: 1.3; }
+h3 { margin: 28px 0 10px; color: #dddddd; font-size: 17px; }
+p { margin: 0 0 14px; }
+ul, ol { margin: 0 0 16px 22px; padding: 0; }
+li { margin: 4px 0; }
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 13.5px; }
+th, td { border: 1px solid var(--border); padding: 7px 9px; text-align: left; vertical-align: top; }
+th { background: var(--panel-2); color: #e4e4e4; font-weight: 600; }
+tr:nth-child(even) td { background: #232324; }
+pre {
+  margin: 18px 0;
+  padding: 14px;
+  overflow: auto;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+:not(pre) > code { padding: 1px 4px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 3px; }
+img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 1px solid var(--border); }
+blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--border); color: var(--muted); }
+.downloads { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+.downloads a { margin-right: 16px; }
+.footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+@media (max-width: 760px) {
+  .layout { display: block; }
+  .sidebar { width: auto; height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
+  .content-inner { padding: 28px 20px 60px; }
+}
+</style>
+</head>
 <body>
-<header><div class="wrap">
-  <h1>Крестики и нолики — документация ТРПО</h1>
-  <p>Бызов К. Д., группа 9/3 – РПО 24/2 · 2026</p>
-</div></header>
-<main><div class="grid">
-        <article class="card">
-          <div class="code">ТЗ.001.2026</div>
-          <h2>Техническое задание</h2>
-          <p>Наименование, назначение, требования и стадии разработки</p>
-          <div class="links">
-            <a href="html/ТЗ.html">Открыть</a>
-            <a href="pdf/ТЗ_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/ТЗ_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">АПО.001.2026</div>
-          <h2>Анализ предметной области</h2>
-          <p>Границы проекта, стейкхолдеры, аналоги, Use Case, DFD, IDEF0</p>
-          <div class="links">
-            <a href="html/АПО.html">Открыть</a>
-            <a href="pdf/АПО_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/АПО_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">ПЗ.001.2026</div>
-          <h2>Пояснительная записка</h2>
-          <p>Архитектура, стек, структуры данных, алгоритмы, тестовые данные</p>
-          <div class="links">
-            <a href="html/ПЗ.html">Открыть</a>
-            <a href="pdf/ПЗ_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/ПЗ_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">ОП.001.2026</div>
-          <h2>Описание программы</h2>
-          <p>Состав модулей, протокол, запуск, входы и выходы</p>
-          <div class="links">
-            <a href="html/ОП.html">Открыть</a>
-            <a href="pdf/Описание_программы_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/Описание_программы_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">ОПП.001.2026</div>
-          <h2>Описание применения</h2>
-          <p>Условия, порядок работы, ограничения, ошибки</p>
-          <div class="links">
-            <a href="html/ОПП.html">Открыть</a>
-            <a href="pdf/Описание_применения_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/Описание_применения_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">ФО.001.2026</div>
-          <h2>Формуляр</h2>
-          <p>Общие сведения, характеристики, комплектность, состояние</p>
-          <div class="links">
-            <a href="html/ФО.html">Открыть</a>
-            <a href="pdf/Формуляр_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/Формуляр_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">РП.001.2026</div>
-          <h2>Руководство пользователя</h2>
-          <p>Вход, профиль, лобби, поле 25 × 25, чат, результаты</p>
-          <div class="links">
-            <a href="html/РП.html">Открыть</a>
-            <a href="pdf/Руководство_пользователя_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/Руководство_пользователя_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">РА.001.2026</div>
-          <h2>Руководство администратора</h2>
-          <p>Сервер, PostgreSQL, учётные записи, журналы, backup</p>
-          <div class="links">
-            <a href="html/РА.html">Открыть</a>
-            <a href="pdf/Руководство_администратора_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/Руководство_администратора_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">РТО.001.2026</div>
-          <h2>Руководство по техническому обслуживанию</h2>
-          <p>Регламент ТО, диагностика, обновление, восстановление</p>
-          <div class="links">
-            <a href="html/РТО.html">Открыть</a>
-            <a href="pdf/Руководство_по_техобслуживанию_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/Руководство_по_техобслуживанию_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">САП.001.2026</div>
-          <h2>Схема алгоритма и программы</h2>
-          <p>Перечень алгоритмов, псевдокод, блок-схемы, переменные</p>
-          <div class="links">
-            <a href="html/САП.html">Открыть</a>
-            <a href="pdf/Схема_алгоритма_и_программы_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/Схема_алгоритма_и_программы_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="code">ПМИ.001.2026</div>
-          <h2>Программа и методика испытаний</h2>
-          <p>Объект, цель, условия, сценарии, критерии приёмки</p>
-          <div class="links">
-            <a href="html/ПМИ.html">Открыть</a>
-            <a href="pdf/ПМИ_Крестики_и_нолики_Бызов.pdf">PDF</a>
-            <a href="docx/ПМИ_Крестики_и_нолики_Бызов.docx">DOCX</a>
-          </div>
-        </article></div></main>
-<footer>Документация проекта «Крестики и нолики» · Бызов К. Д., группа 9/3 – РПО 24/2 ·
-2026</footer>
-</body></html>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file" href="html/ТЗ.html"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="html/АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" href="html/ПЗ.html"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file" href="html/ОП.html"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="html/ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="html/ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="html/РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file" href="html/РА.html"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="html/РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="html/САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file" href="html/ПМИ.html"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
+<main class="content">
+<div class="content-inner">
+
+<div class="breadcrumb">Документация</div>
+<h1>Крестики и нолики</h1>
+<p>Комплект программной документации по дисциплине «Технология разработки
+программного обеспечения». Вариант для одиночной разработки: поле 25 × 25,
+победа по пяти символам в ряд, чат с фильтром, профиль игрока.</p>
+<table>
+<thead><tr><th>Код</th><th>Документ</th><th>Файлы</th></tr></thead>
+<tbody><tr><td><a href="html/ТЗ.html">ТЗ.001.2026</a></td><td><a href="html/ТЗ.html">Техническое задание</a></td><td><a href="pdf/ТЗ_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/ТЗ_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/АПО.html">АПО.001.2026</a></td><td><a href="html/АПО.html">Анализ предметной области</a></td><td><a href="pdf/АПО_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/АПО_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/ПЗ.html">ПЗ.001.2026</a></td><td><a href="html/ПЗ.html">Пояснительная записка</a></td><td><a href="pdf/ПЗ_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/ПЗ_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/ОП.html">ОП.001.2026</a></td><td><a href="html/ОП.html">Описание программы</a></td><td><a href="pdf/Описание_программы_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/Описание_программы_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/ОПП.html">ОПП.001.2026</a></td><td><a href="html/ОПП.html">Описание применения</a></td><td><a href="pdf/Описание_применения_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/Описание_применения_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/ФО.html">ФО.001.2026</a></td><td><a href="html/ФО.html">Формуляр</a></td><td><a href="pdf/Формуляр_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/Формуляр_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/РП.html">РП.001.2026</a></td><td><a href="html/РП.html">Руководство пользователя</a></td><td><a href="pdf/Руководство_пользователя_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/Руководство_пользователя_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/РА.html">РА.001.2026</a></td><td><a href="html/РА.html">Руководство администратора</a></td><td><a href="pdf/Руководство_администратора_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/Руководство_администратора_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/РТО.html">РТО.001.2026</a></td><td><a href="html/РТО.html">Руководство по техническому обслуживанию</a></td><td><a href="pdf/Руководство_по_техобслуживанию_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/Руководство_по_техобслуживанию_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/САП.html">САП.001.2026</a></td><td><a href="html/САП.html">Схема алгоритма и программы</a></td><td><a href="pdf/Схема_алгоритма_и_программы_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/Схема_алгоритма_и_программы_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr><tr><td><a href="html/ПМИ.html">ПМИ.001.2026</a></td><td><a href="html/ПМИ.html">Программа и методика испытаний</a></td><td><a href="pdf/ПМИ_Крестики_и_нолики_Бызов.pdf">PDF</a> · <a href="docx/ПМИ_Крестики_и_нолики_Бызов.docx">DOCX</a></td></tr></tbody>
+</table>
+<div class="footer">Бызов К. Д., группа 9/3 – РПО 24/2 · 2026</div>
+
+</div>
+</main>
+</div>
+</body>
+</html>

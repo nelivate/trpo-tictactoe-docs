@@ -1,26 +1,130 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8">
+<html lang="ru">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Пояснительная записка — Крестики и нолики</title>
 <style>
-body { margin:0; background:#f5f7fb; color:#23304a; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; }
-header { background:#2f3b52; color:#fff; padding:22px 24px; }
-header a { color:#c9d3e6; text-decoration:none; font-size:14px; }
-main { max-width:980px; margin:0 auto; padding:28px 24px 60px; background:#fff; }
-h1 { font-size:28px; margin-top:0; }
-h2 { font-size:20px; margin-top:28px; }
-h3 { font-size:17px; }
-table { border-collapse:collapse; width:100%; margin:14px 0; }
-th,td { border:1px solid #cfd7e6; padding:6px 8px; font-size:14px; vertical-align:top; }
-th { background:#edf1f8; text-align:left; }
-pre { background:#f3f5fa; padding:12px; overflow:auto; border-radius:6px; }
-code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; }
-img { max-width:100%; height:auto; }
-.nav { margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; }
-.nav a { color:#4f7cff; font-weight:600; text-decoration:none; }
-</style></head><body>
-<header><a href="../index.html">← Все документы</a></header>
-<main><h1>Пояснительная записка</h1>
+:root {
+  --bg: #1e1e1e;
+  --panel: #252526;
+  --panel-2: #2a2a2b;
+  --border: #3a3a3a;
+  --text: #d4d4d4;
+  --muted: #969696;
+  --link: #c7d0dc;
+  --hover: #303030;
+  --active: #333333;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 280px;
+  flex: 0 0 280px;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  padding: 26px 14px 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar .brand {
+  margin: 0 10px 4px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.sidebar .project {
+  margin: 0 10px 22px;
+  color: #e6e6e6;
+  font-size: 16px;
+  font-weight: 600;
+}
+.sidebar .section {
+  margin: 16px 10px 8px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.file {
+  display: block;
+  padding: 7px 10px;
+  border-left: 2px solid transparent;
+  border-radius: 3px;
+}
+.file:hover { background: var(--hover); text-decoration: none; }
+.file.active { background: var(--active); border-left-color: #9aa7b8; }
+.file .code {
+  display: block;
+  color: var(--muted);
+  font: 11px/1.25 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.file .name { display: block; margin-top: 2px; color: var(--text); font-size: 13px; }
+.sidebar .meta {
+  margin: 24px 10px 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.content { flex: 1; min-width: 0; }
+.content-inner { max-width: 860px; margin: 0 auto; padding: 46px 40px 80px; }
+.breadcrumb { margin-bottom: 24px; color: var(--muted); font-size: 12px; }
+.breadcrumb a { color: var(--muted); }
+h1 { margin: 0 0 24px; color: #e8e8e8; font-size: 30px; line-height: 1.25; font-weight: 650; }
+h2 { margin: 36px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); color: #e0e0e0; font-size: 21px; line-height: 1.3; }
+h3 { margin: 28px 0 10px; color: #dddddd; font-size: 17px; }
+p { margin: 0 0 14px; }
+ul, ol { margin: 0 0 16px 22px; padding: 0; }
+li { margin: 4px 0; }
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 13.5px; }
+th, td { border: 1px solid var(--border); padding: 7px 9px; text-align: left; vertical-align: top; }
+th { background: var(--panel-2); color: #e4e4e4; font-weight: 600; }
+tr:nth-child(even) td { background: #232324; }
+pre {
+  margin: 18px 0;
+  padding: 14px;
+  overflow: auto;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+:not(pre) > code { padding: 1px 4px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 3px; }
+img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 1px solid var(--border); }
+blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--border); color: var(--muted); }
+.downloads { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+.downloads a { margin-right: 16px; }
+.footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+@media (max-width: 760px) {
+  .layout { display: block; }
+  .sidebar { width: auto; height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
+  .content-inner { padding: 28px 20px 60px; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file" href="ТЗ.html"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" class="active" href="ПЗ.html" aria-current="page"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file" href="ОП.html"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file" href="РА.html"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file" href="ПМИ.html"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
+<main class="content">
+<div class="content-inner">
+<div class="breadcrumb"><a href="../index.html">Документация</a> / Пояснительная записка</div>
+<h1>Пояснительная записка</h1>
 <p>Министерство науки и высшего образования Российской Федерации</p>
 <p>Автономная некоммерческая организация профессиональная</p>
 <p>образовательная организация Московский международный колледж</p>
@@ -522,9 +626,10 @@ img { max-width:100%; height:auto; }
 <p>Для серверной части выбраны C# и .NET 10; для клиентской — Flutter; для хранения — PostgreSQL с провайдером Npgsql. Обмен выполняется по TCP/IP сообщениями JSON с разделением по символу конца строки. Сервер является единственным источником истины и проверяет все ходы.</p>
 <p>Определены архитектурные компоненты, структура базы данных, классы User, UserProfile, GameSession, GameBoard, ClientHandler, ChatService и ScoreService, а также алгоритмы авторизации, обработки хода, проверки пяти в ряд, фильтрации сообщений, создания сессии и подсчёта баллов.</p>
 <p>Подготовлены тестовые пакеты, охватывающие основные функции и типовые ошибочные ситуации. Дальнейшие этапы — реализация описанных компонентов, проведение испытаний, устранение дефектов и оформление эксплуатационной документации.</p>
-<p>Перспективы развития: подключение внешнего хранилища сессий для горизонтального масштабирования, добавление рейтинговой системы, расширение набора игр и переход к командным режимам с мини-игрой и списком друзей. Эти возможности не входят в текущий объём, но заложенная клиент-серверная архитектура позволяет добавить их без переработки ядра игровой логики.</p></main>
-<div class="nav" style="max-width:980px;margin:0 auto;padding:0 24px 40px;">
-  <a href="../pdf/ПЗ_Крестики_и_нолики_Бызов.pdf">PDF</a>
-  <a href="../docx/ПЗ_Крестики_и_нолики_Бызов.docx">DOCX</a>
+<p>Перспективы развития: подключение внешнего хранилища сессий для горизонтального масштабирования, добавление рейтинговой системы, расширение набора игр и переход к командным режимам с мини-игрой и списком друзей. Эти возможности не входят в текущий объём, но заложенная клиент-серверная архитектура позволяет добавить их без переработки ядра игровой логики.</p>
+<div class="downloads"><a href="../pdf/ПЗ_Крестики_и_нолики_Бызов.pdf">PDF</a><a href="../docx/ПЗ_Крестики_и_нолики_Бызов.docx">DOCX</a></div>
 </div>
-</body></html>
+</main>
+</div>
+</body>
+</html>
