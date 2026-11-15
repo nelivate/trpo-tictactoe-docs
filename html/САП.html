@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Схема алгоритма и программы — Крестики и нолики</title>
+<style>
+body { margin:0; background:#f5f7fb; color:#23304a; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; }
+header { background:#2f3b52; color:#fff; padding:22px 24px; }
+header a { color:#c9d3e6; text-decoration:none; font-size:14px; }
+main { max-width:980px; margin:0 auto; padding:28px 24px 60px; background:#fff; }
+h1 { font-size:28px; margin-top:0; }
+h2 { font-size:20px; margin-top:28px; }
+h3 { font-size:17px; }
+table { border-collapse:collapse; width:100%; margin:14px 0; }
+th,td { border:1px solid #cfd7e6; padding:6px 8px; font-size:14px; vertical-align:top; }
+th { background:#edf1f8; text-align:left; }
+pre { background:#f3f5fa; padding:12px; overflow:auto; border-radius:6px; }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; }
+img { max-width:100%; height:auto; }
+.nav { margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; }
+.nav a { color:#4f7cff; font-weight:600; text-decoration:none; }
+</style></head><body>
+<header><a href="../index.html">← Все документы</a></header>
+<main><h1>Схема алгоритма и программы</h1>
+<p>Министерство науки и высшего образования Российской Федерации</p>
+<p>Автономная некоммерческая организация профессиональная</p>
+<p>образовательная организация Московский международный колледж</p>
+<p>цифровых технологий «Академия ТОП»</p>
+<p>Факультет Информационных систем и программирования</p>
+<p>Кафедра Разработка программного обеспечения</p>
+<table>
+<thead>
+<tr>
+<th>СОГЛАСОВАНО Руководитель проекта от кафедры, преподаватель _________ /Д. В. Золотухин / «___» ____________ 2026 г.</th>
+<th>УТВЕРЖДАЮ Заведующий выпускающей кафедрой ________ / И. О. Фамилия / «___» ___________ 2026 г.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>СХЕМА АЛГОРИТМА И ПРОГРАММЫ</h1>
+<p>на разработку программного комплекса</p>
+<h1>«Крестики и нолики»</h1>
+<p>Код документа: САП.001.2026</p>
+<table>
+<thead>
+<tr>
+<th>Листов: 13</th>
+<th>Исполнители (разработчики): Студенты группы 9/3 – РПО 24/2 __________ / К. Д. Бызов/ «11» ноября 2026 г.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>МОСКВА — 2026 г.</p>
+<h1>1. Перечень алгоритмов программы</h1>
+<p>В состав программы входят алгоритмы, обеспечивающие авторизацию, управление игровыми сессиями, обработку ходов, проверку победы, фильтрацию сообщений и подсчёт баллов. Перечень приведён в таблице 1.</p>
+<p>Таблица 1 — Перечень основных алгоритмов</p>
+<table>
+<thead>
+<tr>
+<th>№</th>
+<th>Алгоритм</th>
+<th>Назначение</th>
+<th>Вход</th>
+<th>Выход</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Авторизация</td>
+<td>Проверка учётных данных и привязка соединения</td>
+<td>Логин, пароль</td>
+<td>Профиль, идентификатор</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Создание сессии</td>
+<td>Создание комнаты и ожидание соперника</td>
+<td>Идентификатор игрока</td>
+<td>SessionId, статус</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Подключение к сессии</td>
+<td>Добавление второго игрока и запуск партии</td>
+<td>SessionId, игрок</td>
+<td>Активная сессия</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Обработка хода</td>
+<td>Валидация и применение хода к полю 25 × 25</td>
+<td>SessionId, координаты</td>
+<td>Новое состояние поля</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>Проверка победы</td>
+<td>Поиск пяти символов в ряд и ничьей</td>
+<td>Поле, последний ход</td>
+<td>Победитель или ничья</td>
+</tr>
+<tr>
+<td>A6</td>
+<td>Фильтрация сообщений чата</td>
+<td>Замена запрещённых слов</td>
+<td>Текст сообщения</td>
+<td>Отфильтрованный текст</td>
+</tr>
+<tr>
+<td>A7</td>
+<td>Подсчёт баллов</td>
+<td>Обновление статистики и итогового счёта</td>
+<td>Результат партии</td>
+<td>Баллы, запись в БД</td>
+</tr>
+</tbody>
+</table>
+<h1>2. Разбор каждого алгоритма</h1>
+<h2>2.1. Алгоритм авторизации</h2>
+<p>Алгоритм проверяет заполненность полей, ищет пользователя в PostgreSQL, сравнивает хеш пароля и привязывает текущее соединение к идентификатору пользователя.</p>
+<p>ФУНКЦИЯ Login(login, password)
+  ЕСЛИ login = "" ИЛИ password = "": ОШИБКА "Заполните поля"
+  user = SELECT * FROM Users WHERE Login = login
+  ЕСЛИ user = NULL: ОШИБКА "Неверный логин или пароль"
+  ЕСЛИ НЕ Verify(password, user.PasswordHash):
+      ОШИБКА "Неверный логин или пароль"
+  connection.UserId = user.UserId
+  ВЕРНУТЬ LoadProfile(user.UserId)</p>
+<h2>2.2. Алгоритм создания сессии</h2>
+<p>Создаётся уникальный идентификатор комнаты, первый игрок назначается хостом, поле инициализируется пустыми клетками, статус — ожидание.</p>
+<p>ФУНКЦИЯ CreateSession(userId)
+  ЕСЛИ userId НЕ авторизован: ОШИБКА
+  sessionId = INSERT INTO GameSessions
+      (PlayerXId, BoardState, CurrentTurn, Status)
+      VALUES (userId, EmptyBoardJson, 1, 'WaitingForOpponent')
+      RETURNING SessionId
+  session = { id: sessionId, playerX: userId, playerO: NULL,
+              board: EmptyBoard(25, 25), turn: X, status: WAITING }
+  sessions[sessionId] = session
+  ВЕРНУТЬ sessionId</p>
+<h2>2.3. Алгоритм подключения второго игрока</h2>
+<p>Сервер проверяет существование сессии, её свободность и статус, добавляет второго игрока, назначает символы X и O и переводит сессию в активное состояние.</p>
+<p>ФУНКЦИЯ JoinSession(sessionId, userId)
+  session = sessions[sessionId]
+  ЕСЛИ session = NULL: ОШИБКА "Сессия не найдена"
+  ЕСЛИ session.playerO &lt;&gt; NULL: ОШИБКА "Сессия заполнена"
+  updated = UPDATE GameSessions
+      SET PlayerOId = userId, Status = 'Active'
+      WHERE SessionId = sessionId
+        AND Status = 'WaitingForOpponent'
+        AND PlayerOId IS NULL
+  ЕСЛИ updated = 0: ОШИБКА "Сессия уже заполнена"
+  session.playerO = userId
+  session.status = ACTIVE
+  session.turn = X
+  Broadcast(session, "start")
+  ВЕРНУТЬ session</p>
+<h2>2.4. Алгоритм обработки хода</h2>
+<p>Алгоритм проверяет сессию, участника, очередь, диапазон координат 0–24 и свободность клетки, записывает символ, проверяет завершение партии и рассылает состояние.</p>
+<p>ФУНКЦИЯ MakeMove(sessionId, userId, row, col)
+  session = sessions[sessionId]
+  ЕСЛИ session = NULL ИЛИ session.status &lt;&gt; ACTIVE: ОШИБКА "Партия завершена"
+  ЕСЛИ userId НЕ В session.players: ОШИБКА "Вы не участник сессии"
+  symbol = session.symbols[userId]
+  ЕСЛИ session.turn &lt;&gt; symbol: ОШИБКА "Сейчас ход другого игрока"
+  ЕСЛИ row &lt; 0 ИЛИ row &gt; 24 ИЛИ col &lt; 0 ИЛИ col &gt; 24:
+      ОШИБКА "Координаты вне диапазона"
+  ЕСЛИ session.board[row][col] &lt;&gt; EMPTY: ОШИБКА "Клетка уже занята"
+  session.board[row][col] = symbol
+  ЕСЛИ CheckWin(session, row, col, symbol):
+      FinishGame(session, symbol)
+  ИНАЧЕ ЕСЛИ IsFull(session.board):
+      FinishGame(session, DRAW)
+  ИНАЧЕ:
+      session.turn = (X ЕСЛИ symbol = X ИНАЧЕ O)
+      UPDATE GameSessions
+          SET BoardState = BoardToJson(session.board),
+              CurrentTurn = session.turn, Status = 'Active'
+          WHERE SessionId = sessionId AND Status = 'Active'
+  Broadcast(session, "state")
+  ВЕРНУТЬ OK</p>
+<h2>2.5. Алгоритм определения победителя</h2>
+<p>Проверка выполняется вокруг последнего хода по четырём направлениям. Счётчик увеличивается, пока соседние клетки содержат тот же символ; при достижении пяти фиксируется победа.</p>
+<p>ФУНКЦИЯ CheckWin(session, row, col, symbol)
+  ДЛЯ (dr, dc) В [(0,1), (1,0), (1,1), (1,-1)]:
+      count = 1
+      count += Count(row, col, dr, dc, symbol)
+      count += Count(row, col, -dr, -dc, symbol)
+      ЕСЛИ count &gt;= 5: ВЕРНУТЬ TRUE
+  ВЕРНУТЬ FALSE</p>
+<p>ФУНКЦИЯ Count(row, col, dr, dc, symbol)
+  n = 0
+  r = row + dr; c = col + dc
+  ПОКА ВНУТРИ_ПОЛЯ(r, c) И board[r][c] = symbol:
+      n = n + 1; r = r + dr; c = c + dc
+  ВЕРНУТЬ n</p>
+<h2>2.6. Алгоритм обработки сообщений чата и фильтрации</h2>
+<p>Текст сообщения чата приводится к нижнему регистру, для каждого слова словаря строится шаблон с разделителями и похожими символами, найденные фрагменты заменяются на «***», после чего сообщение рассылается и сохраняется.</p>
+<p>ФУНКЦИЯ Filter(text)
+  ЕСЛИ Trim(text) = "": ВЕРНУТЬ NULL
+  ДЛЯ каждого word В Dictionary:
+      pattern = BuildPattern(word)
+      text = RegexReplace(text, pattern, "***")
+  ВЕРНУТЬ text</p>
+<p>ФУНКЦИЯ BuildPattern(word)
+  pattern = ""
+  ДЛЯ каждого символа c В word:
+      ЕСЛИ pattern &lt;&gt; "": pattern = pattern + "[\s\p{P}\p{S}]*"
+      pattern = pattern + CharacterClass(c)  // похожие буквы и цифры
+  ВЕРНУТЬ pattern</p>
+<h2>2.7. Алгоритм подсчёта баллов</h2>
+<p>После завершения партии результат и статистика обновляются в одной транзакции PostgreSQL. Победа даёт 3 балла, ничья — 1, поражение — 0.</p>
+<p>ФУНКЦИЯ FinishGame(session, winnerSymbol)
+  ЕСЛИ winnerSymbol = X:
+      bonusX = 3; bonusO = 0; winnerId = session.playerX
+  ИНАЧЕ ЕСЛИ winnerSymbol = O:
+      bonusX = 0; bonusO = 3; winnerId = session.playerO
+  ИНАЧЕ:
+      bonusX = 1; bonusO = 1; winnerId = NULL</p>
+<p>BEGIN TRANSACTION
+  inserted = INSERT INTO GameResults
+      (SessionId, WinnerId, ResultType)
+      VALUES (session.id, winnerId,
+              CASE WHEN winnerId IS NULL THEN 'Draw' ELSE 'Win' END)
+      ON CONFLICT (SessionId) DO NOTHING
+      RETURNING ResultId
+  ЕСЛИ inserted &lt;&gt; NULL:
+      UPDATE UserProfiles
+          SET GamesPlayed = GamesPlayed + 1,
+              Wins = Wins + (CASE WHEN winnerId = session.playerX THEN 1 ELSE 0 END),
+              Losses = Losses + (CASE WHEN winnerId = session.playerO THEN 1 ELSE 0 END),
+              TotalScore = TotalScore + bonusX
+          WHERE UserId = session.playerX
+      UPDATE UserProfiles
+          SET GamesPlayed = GamesPlayed + 1,
+              Wins = Wins + (CASE WHEN winnerId = session.playerO THEN 1 ELSE 0 END),
+              Losses = Losses + (CASE WHEN winnerId = session.playerX THEN 1 ELSE 0 END),
+              TotalScore = TotalScore + bonusO
+          WHERE UserId = session.playerO
+  UPDATE GameSessions
+      SET BoardState = BoardToJson(session.board),
+          Status = 'Finished', FinishedAt = NOW()
+      WHERE SessionId = session.id
+  COMMIT
+  SendResult(session, bonusX, bonusO)</p>
+<h1>3. Создание блок-схем для ключевых алгоритмов</h1>
+<h2>3.1. Создание сессии</h2>
+<p>Алгоритм отвечает за создание изолированной игровой комнаты и является ключевым, потому что с него начинается любая партия. Переменные алгоритма приведены в таблице 2.</p>
+<p>Таблица 2 — Переменные алгоритма создания сессии</p>
+<table>
+<thead>
+<tr>
+<th>Имя</th>
+<th>Тип</th>
+<th>Область видимости</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sessionId</td>
+<td>int</td>
+<td>глобальная</td>
+<td>Уникальный номер сессии</td>
+</tr>
+<tr>
+<td>playerX, playerO</td>
+<td>int</td>
+<td>глобальная</td>
+<td>Идентификаторы игроков</td>
+</tr>
+<tr>
+<td>board</td>
+<td>char[25,25]</td>
+<td>глобальная</td>
+<td>Состояние поля</td>
+</tr>
+<tr>
+<td>turn</td>
+<td>int</td>
+<td>глобальная</td>
+<td>Очередь: 1 — X, 2 — O</td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td>глобальная</td>
+<td>Статус сессии</td>
+</tr>
+</tbody>
+</table>
+<p>Схема приведена на рисунке 1.</p>
+<p><img alt="Рисунок" src="../img/САП/image1.png" /></p>
+<p>Рисунок 1 — Алгоритм создания сессии</p>
+<h2>3.2. Обработка хода</h2>
+<p>Алгоритм проверяет допустимость хода и синхронизирует состояние поля. Переменные алгоритма приведены в таблице 3.</p>
+<p>Таблица 3 — Переменные алгоритма обработки хода</p>
+<table>
+<thead>
+<tr>
+<th>Имя</th>
+<th>Тип</th>
+<th>Область видимости</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sessionId</td>
+<td>int</td>
+<td>локальная</td>
+<td>Идентификатор игровой сессии</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>int</td>
+<td>локальная</td>
+<td>Идентификатор игрока</td>
+</tr>
+<tr>
+<td>row, col</td>
+<td>int</td>
+<td>локальная</td>
+<td>Координаты клетки (0–24)</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>char</td>
+<td>локальная</td>
+<td>Символ X или O</td>
+</tr>
+<tr>
+<td>dr, dc</td>
+<td>int</td>
+<td>локальная</td>
+<td>Направление проверки</td>
+</tr>
+<tr>
+<td>count</td>
+<td>int</td>
+<td>локальная</td>
+<td>Количество символов подряд</td>
+</tr>
+<tr>
+<td>session</td>
+<td>GameSession</td>
+<td>локальная</td>
+<td>Состояние партии</td>
+</tr>
+</tbody>
+</table>
+<p>Схема приведена на рисунке 2.</p>
+<p><img alt="Рисунок" src="../img/САП/image2.png" /></p>
+<p>Рисунок 2 — Алгоритм обработки хода и синхронизации</p>
+<h2>3.3. Проверка победы и ничьей</h2>
+<p>Алгоритм определяет завершение партии по пяти символам в ряд или по заполнению поля. Блок-схема приведена на рисунке 3.</p>
+<p><img alt="Рисунок" src="../img/САП/image3.png" /></p>
+<p>Рисунок 3 — Алгоритм проверки победы и ничьей</p>
+<h2>3.4. Фильтрация сообщений чата</h2>
+<p>Алгоритм заменяет запрещённые выражения с учётом разделителей и похожих символов. Переменные приведены в таблице 4.</p>
+<p>Таблица 4 — Переменные алгоритма фильтрации</p>
+<table>
+<thead>
+<tr>
+<th>Имя</th>
+<th>Тип</th>
+<th>Область видимости</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>локальная</td>
+<td>Исходный текст сообщения</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>string</td>
+<td>локальная</td>
+<td>Шаблон поиска с разделителями</td>
+</tr>
+<tr>
+<td>word</td>
+<td>string</td>
+<td>локальная</td>
+<td>Очередное слово словаря</td>
+</tr>
+<tr>
+<td>dictionary</td>
+<td>string[]</td>
+<td>глобальная</td>
+<td>Словарь запрещённых слов</td>
+</tr>
+</tbody>
+</table>
+<p>Схема приведена на рисунке 4.</p>
+<p><img alt="Рисунок" src="../img/САП/image4.png" /></p>
+<p>Рисунок 4 — Алгоритм обработки и фильтрации сообщений</p>
+<h2>3.5. Авторизация</h2>
+<p>Алгоритм проверяет учётные данные и привязывает соединение к пользователю. Блок-схема приведена на рисунке 5.</p>
+<p><img alt="Рисунок" src="../img/САП/image5.png" /></p>
+<p>Рисунок 5 — Алгоритм авторизации</p>
+<h1>4. Заключение</h1>
+<p>Схемы алгоритмов оформлены с учётом ГОСТ 19.701-90: используются блоки «начало/конец», «процесс», «решение», «данные» и «документ». Линии потока направлены сверху вниз или слева направо; каждое ветвление подписано «да» или «нет». Подписи рисунков размещены под изображениями.</p>
+<p>Псевдокод приведён для однозначного понимания логики и не зависит от конкретного языка реализации. Имена переменных совпадают с именами в пояснительной записке и описании программы.</p></main>
+<div class="nav" style="max-width:980px;margin:0 auto;padding:0 24px 40px;">
+  <a href="../pdf/Схема_алгоритма_и_программы_Крестики_и_нолики_Бызов.pdf">PDF</a>
+  <a href="../docx/Схема_алгоритма_и_программы_Крестики_и_нолики_Бызов.docx">DOCX</a>
+</div>
+</body></html>
