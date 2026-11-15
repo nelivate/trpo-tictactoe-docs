@@ -90,7 +90,9 @@ h3 { margin: 28px 0 10px; color: #dddddd; font-size: 17px; }
 p { margin: 0 0 14px; }
 ul, ol { margin: 0 0 16px 22px; padding: 0; }
 li { margin: 4px 0; }
-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 13.5px; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 18px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.table-scroll table { min-width: 620px; margin: 0; }
 th, td { border: 1px solid var(--border); padding: 7px 9px; text-align: left; vertical-align: top; }
 th { background: var(--panel-2); color: #e4e4e4; font-weight: 600; }
 tr:nth-child(even) td { background: #232324; }
@@ -106,21 +108,22 @@ pre {
 }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
 :not(pre) > code { padding: 1px 4px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 3px; }
-img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 1px solid var(--border); }
+img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 0; }
 blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--border); color: var(--muted); }
 .downloads { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
 .downloads a { margin-right: 16px; }
 .footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
 @media (max-width: 760px) {
+  body { overflow-x: hidden; }
   .layout { display: block; }
-  .sidebar { width: auto; height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
+  .sidebar { width: auto; height: auto; max-height: 42vh; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
   .content-inner { padding: 28px 20px 60px; }
 }
 </style>
 </head>
 <body>
 <div class="layout">
-<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file" href="ТЗ.html"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" href="ПЗ.html"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file" href="ОП.html"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file" href="РА.html"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file" class="active" href="ПМИ.html" aria-current="page"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
+<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file" href="ТЗ.html"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" href="ПЗ.html"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file" href="ОП.html"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file" href="РА.html"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file active" href="ПМИ.html" aria-current="page"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
 <main class="content">
 <div class="content-inner">
 <div class="breadcrumb"><a href="../index.html">Документация</a> / Программа и методика испытаний</div>
@@ -131,7 +134,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <p>цифровых технологий «Академия ТОП»</p>
 <p>Факультет Информационных систем и программирования</p>
 <p>Кафедра Разработка программного обеспечения</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>СОГЛАСОВАНО Руководитель проекта от кафедры, преподаватель _________ /Д. В. Золотухин / «___» ____________ 2026 г.</th>
@@ -144,15 +147,15 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h1>ПРОГРАММА И МЕТОДИКА ИСПЫТАНИЙ</h1>
 <p>на разработку программного комплекса</p>
 <h1>«Крестики и нолики»</h1>
 <p>Код документа: ПМИ.001.2026</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
-<th>Листов: 14</th>
+<th>Листов: 15</th>
 <th>Исполнители (разработчики): Студенты группы 9/3 – РПО 24/2 __________ / К. Д. Бызов/ «14» ноября 2026 г.</th>
 </tr>
 </thead>
@@ -162,7 +165,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>МОСКВА — 2026 г.</p>
 <h1>1. Объект испытаний</h1>
 <p>Объектом испытаний является клиент-серверная программа «Крестики и нолики» версии 1.0, разрабатываемая в соответствии с Техническим заданием на разработку программного комплекса «Крестики и нолики», утверждённым 18 сентября 2026 г. Испытаниям подлежит расширенная версия для одиночной разработки: игровое поле 25 × 25, победа — пять символов в ряд.</p>
@@ -198,7 +201,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <h2>3.4. Перечень проверяемых требований</h2>
 <p>Перечень требований Технического задания, подлежащих проверке, приведён в таблице 1.</p>
 <p>Таблица 1 — Перечень проверяемых требований</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Пункт ТЗ</th>
@@ -271,7 +274,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Работа клиента в Windows 10/11, сервера в Docker, применение C# / .NET 10 и TCP/IP</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2>3.5. Перечень предъявляемой документации</h2>
 <p>На испытания предъявляется следующий комплект программной документации:</p>
 <p>– техническое задание на разработку программного комплекса;</p>
@@ -304,7 +307,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <h2>4.3. Тестовые данные</h2>
 <p>Перед началом испытаний создаются тестовые учётные записи и очищается история ранее проведённых игровых сессий. Перечень тестовых учётных записей приведён в таблице 2.</p>
 <p>Таблица 2 — Тестовые учётные записи</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Логин</th>
@@ -339,7 +342,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Проверка параллельных сессий</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Дополнительно используются: пустая история игровых сессий и сообщений чата; тестовые профили пользователей; журнал сервера, включаемый на время испытаний.</p>
 <h2>4.4. Порядок проведения испытаний</h2>
 <p>Испытания проводятся последовательно, в порядке, установленном пунктом 7 Технического задания:</p>
@@ -364,14 +367,14 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <p>– испытания проводятся в локальной сети без выхода в Интернет; Docker port mapping допускается;</p>
 <p>– все сценарии выполняются на версии программы 1.0;</p>
 <p>– проверка восстановления серверной части после аварийного завершения процесса в объём настоящих испытаний не входит;</p>
-<p>– правила начисления баллов и формирования итогового счёта принимаются в соответствии с реализацией программы.</p>
+<p>– правила начисления баллов и формирования итогового счёта проверяются по пункту 4.1 ТЗ: 3 балла за победу, 1 — за ничью, 0 — за поражение.</p>
 <h1>5. Методика испытаний (тестовые сценарии)</h1>
 <p>Испытания проводятся методом «чёрного ящика»: тестировщик воздействует на программу только через пользовательский интерфейс и сетевые сообщения, не изменяя исходный код. Для каждого сценария указаны проверяемая функция, последовательность действий и ожидаемый результат. Графа «Результат» заполняется при проведении испытаний значениями «Пройден» или «Сбой».</p>
 <p>Сценарии сгруппированы по подсистемам: авторизация и профиль (5.1), игровые сессии (5.2), игровое поле (5.3), чат (5.4), подсчёт баллов (5.5), надёжность и совместимость (5.6).</p>
 <h2>5.1. Авторизация и профиль пользователя</h2>
 <p>Сценарии проверки авторизации и профиля пользователя приведены в таблице 3.</p>
 <p>Таблица 3 — Сценарии проверки авторизации и профиля</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>№</th>
@@ -431,12 +434,26 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Ранее сохранённые данные профиля отображаются без изменений.</td>
 <td></td>
 </tr>
+<tr>
+<td>A-08</td>
+<td>Заблокированный пользователь</td>
+<td>1. Заблокировать player2 командой --block-user. 2. Попытаться войти под player2.</td>
+<td>Вход отклоняется сообщением «Неверный логин или пароль».</td>
+<td></td>
+</tr>
+<tr>
+<td>A-09</td>
+<td>Ограничение попыток входа</td>
+<td>1. Пять раз ввести неверный пароль player2. 2. Ввести правильный пароль.</td>
+<td>После пятой неудачи вход блокируется на 60 секунд; выводится сообщение о слишком большом числе попыток.</td>
+<td></td>
+</tr>
 </tbody>
-</table>
+</table></div>
 <h2>5.2. Игровые сессии</h2>
 <p>Сценарии проверки игровых сессий приведены в таблице 4.</p>
 <p>Таблица 4 — Сценарии проверки игровых сессий</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>№</th>
@@ -496,12 +513,19 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Состояние поля в БД соответствует последнему подтверждённому ходу и не теряется при повторном чтении.</td>
 <td></td>
 </tr>
+<tr>
+<td>SS-08</td>
+<td>Отмена партии без начисления баллов</td>
+<td>1. Начать партию и выполнить несколько ходов. 2. Нажать «Выйти» у player2. 3. Проверить GameSessions, GameResults и профили.</td>
+<td>Сессия получает статус Cancelled; запись в GameResults не создаётся; баллы и статистика не изменяются.</td>
+<td></td>
+</tr>
 </tbody>
-</table>
+</table></div>
 <h2>5.3. Игровое поле и игровая логика</h2>
 <p>Сценарии проверки игрового поля и игровой логики приведены в таблице 5.</p>
 <p>Таблица 5 — Сценарии проверки игрового поля</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>№</th>
@@ -564,7 +588,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <tr>
 <td>G-08</td>
 <td>Ничья</td>
-<td>1. Заполнить все клетки поля 25 × 25 без образования линии из пяти символов (автоматически сформированный набор ходов).</td>
+<td>1. Запустить tests/test_server.py — сценарий test_draw (625 ходов по шаблону без линии из пяти).</td>
 <td>Партия завершается с результатом «Ничья»; результат отображается обоим игрокам.</td>
 <td></td>
 </tr>
@@ -590,11 +614,11 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2>5.4. Чат</h2>
 <p>Сценарии проверки чата приведены в таблице 6.</p>
 <p>Таблица 6 — Сценарии проверки чата</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>№</th>
@@ -636,16 +660,23 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <tr>
 <td>C-05</td>
 <td>Специальные символы и HTML</td>
-<td>1. Отправить сообщение <script>alert(1)</script>.</td>
+<td>1. Отправить сообщение &lt;script&gt;alert(1)&lt;/script&gt;.</td>
 <td>Текст отображается как обычная строка и экранируется; сценарий не выполняется.</td>
 <td></td>
 </tr>
+<tr>
+<td>C-06</td>
+<td>Слишком длинное сообщение</td>
+<td>1. Отправить сообщение длиной 501 символ.</td>
+<td>Сервер возвращает ошибку «Сообщение слишком длинное»; сообщение не рассылается и не сохраняется.</td>
+<td></td>
+</tr>
 </tbody>
-</table>
+</table></div>
 <h2>5.5. Подсчёт баллов и итоговый счёт</h2>
 <p>Сценарии проверки автоматического подсчёта баллов приведены в таблице 7.</p>
 <p>Таблица 7 — Сценарии проверки подсчёта баллов</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>№</th>
@@ -685,11 +716,11 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2>5.6. Надёжность и совместимость</h2>
 <p>Сценарии проверки надёжности и совместимости приведены в таблице 8.</p>
 <p>Таблица 8 — Сценарии проверки надёжности и совместимости</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>№</th>
@@ -728,8 +759,15 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Программа работает без ошибок и соответствует требованиям пункта 4.4 ТЗ.</td>
 <td></td>
 </tr>
+<tr>
+<td>R-05</td>
+<td>Веб-сборка клиента</td>
+<td>1. Собрать клиент командой flutter build web --release. 2. Открыть сборку в браузере и выполнить вход.</td>
+<td>Веб-клиент открывается, подключается к серверу и выполняет базовый игровой сценарий.</td>
+<td></td>
+</tr>
 </tbody>
-</table>
+</table></div>
 <h1>6. Критерии приёмки и отчётность</h1>
 <h2>6.1. Критерии успешности испытаний</h2>
 <p>Испытания считаются пройденными, если одновременно выполнены следующие условия:</p>

@@ -90,7 +90,9 @@ h3 { margin: 28px 0 10px; color: #dddddd; font-size: 17px; }
 p { margin: 0 0 14px; }
 ul, ol { margin: 0 0 16px 22px; padding: 0; }
 li { margin: 4px 0; }
-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 13.5px; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 18px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.table-scroll table { min-width: 620px; margin: 0; }
 th, td { border: 1px solid var(--border); padding: 7px 9px; text-align: left; vertical-align: top; }
 th { background: var(--panel-2); color: #e4e4e4; font-weight: 600; }
 tr:nth-child(even) td { background: #232324; }
@@ -106,14 +108,15 @@ pre {
 }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
 :not(pre) > code { padding: 1px 4px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 3px; }
-img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 1px solid var(--border); }
+img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 0; }
 blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--border); color: var(--muted); }
 .downloads { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
 .downloads a { margin-right: 16px; }
 .footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
 @media (max-width: 760px) {
+  body { overflow-x: hidden; }
   .layout { display: block; }
-  .sidebar { width: auto; height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
+  .sidebar { width: auto; height: auto; max-height: 42vh; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
   .content-inner { padding: 28px 20px 60px; }
 }
 </style>

@@ -90,7 +90,9 @@ h3 { margin: 28px 0 10px; color: #dddddd; font-size: 17px; }
 p { margin: 0 0 14px; }
 ul, ol { margin: 0 0 16px 22px; padding: 0; }
 li { margin: 4px 0; }
-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 13.5px; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 18px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.table-scroll table { min-width: 620px; margin: 0; }
 th, td { border: 1px solid var(--border); padding: 7px 9px; text-align: left; vertical-align: top; }
 th { background: var(--panel-2); color: #e4e4e4; font-weight: 600; }
 tr:nth-child(even) td { background: #232324; }
@@ -106,21 +108,22 @@ pre {
 }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
 :not(pre) > code { padding: 1px 4px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 3px; }
-img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 1px solid var(--border); }
+img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 0; }
 blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--border); color: var(--muted); }
 .downloads { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
 .downloads a { margin-right: 16px; }
 .footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
 @media (max-width: 760px) {
+  body { overflow-x: hidden; }
   .layout { display: block; }
-  .sidebar { width: auto; height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
+  .sidebar { width: auto; height: auto; max-height: 42vh; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
   .content-inner { padding: 28px 20px 60px; }
 }
 </style>
 </head>
 <body>
 <div class="layout">
-<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file" href="ТЗ.html"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" href="ПЗ.html"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file" href="ОП.html"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file" class="active" href="РА.html" aria-current="page"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file" href="ПМИ.html"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
+<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file" href="ТЗ.html"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" href="ПЗ.html"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file" href="ОП.html"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file active" href="РА.html" aria-current="page"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file" href="ПМИ.html"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
 <main class="content">
 <div class="content-inner">
 <div class="breadcrumb"><a href="../index.html">Документация</a> / Руководство администратора</div>
@@ -131,7 +134,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <p>цифровых технологий «Академия ТОП»</p>
 <p>Факультет Информационных систем и программирования</p>
 <p>Кафедра Разработка программного обеспечения</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>СОГЛАСОВАНО Руководитель проекта от кафедры, преподаватель _________ /Д. В. Золотухин / «___» ____________ 2026 г.</th>
@@ -144,12 +147,12 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h1>РУКОВОДСТВО АДМИНИСТРАТОРА</h1>
 <p>на разработку программного комплекса</p>
 <h1>«Крестики и нолики»</h1>
 <p>Код документа: РА.001.2026</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Листов: 11</th>
@@ -162,7 +165,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>МОСКВА — 2026 г.</p>
 <h1>1. Назначение и роли</h1>
 <p>Руководство администратора предназначено для специалиста, который развёртывает и сопровождает серверную часть программного комплекса «Крестики и нолики». Сервер и PostgreSQL работают в Docker-контейнерах; администратор управляет стеком через Docker Compose, командную строку сервера и клиент PostgreSQL.</p>
@@ -174,7 +177,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <h1>2. Требования к серверу</h1>
 <p>Данные приведены в таблице 1.</p>
 <p>Таблица 1 — Требования к серверу</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Компонент</th>
@@ -207,7 +210,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Windows 10/11 с Flutter-клиентом</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h1>3. Развёртывание</h1>
 <p>Порядок развёртывания:</p>
 <ol>
@@ -232,7 +235,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 </ol>
 <p>Основные параметры приведены в таблице 2.</p>
 <p>Таблица 2 — Параметры развёртывания</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Параметр</th>
@@ -282,23 +285,24 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Данные PostgreSQL</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Пароль по умолчанию ttt предназначен только для локального запуска. Перед эксплуатацией в сети смените пароль в docker-compose.yml и в параметрах подключения.</p>
 <h1>4. Запуск, остановка и журналы</h1>
 <p>Основные команды выполняются из корня проекта:</p>
-<p>docker compose up -d --build   # запуск и сборка
+<pre><code>docker compose up -d --build   # запуск и сборка
 docker compose ps              # состояние контейнеров
 docker compose logs -f server  # журнал сервера
 docker compose restart server  # перезапуск сервера
 docker compose stop            # остановка без удаления
-docker compose down            # остановка и удаление контейнеров</p>
+docker compose down            # остановка и удаление контейнеров
+</code></pre>
 <p>Данные PostgreSQL сохраняются в томе pgdata и не удаляются при docker compose down. Команда docker compose down -v удаляет и том — использовать только при полном сбросе.</p>
 <p>Контейнер db имеет healthcheck pg_isready. Контейнер server запускается только после того, как база стала здоровой.</p>
 <h1>5. Управление учётными записями</h1>
 <p>Учётные записи создаются администратором. Пароль хранится в виде хеша с солью; открытый пароль не сохраняется. Команды выполняются через одноразовый контейнер сервера.</p>
 <p>Данные приведены в таблице 3.</p>
 <p>Таблица 3 — Операции с учётными записями</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Операция</th>
@@ -328,21 +332,27 @@ docker compose down            # остановка и удаление конт
 <td>Новый пароль задаётся интерактивно</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Для неинтерактивного создания пользователя в скрипте используйте docker compose run --rm -T server --create-user login и передайте пароль и никнейм через стандартный ввод.</p>
 <h1>6. База данных</h1>
 <p>Схема создаётся автоматически при первом запуске сервера. Подключение к PostgreSQL:</p>
-<p>docker compose exec db psql -U ttt -d ttt</p>
+<pre><code>docker compose exec db psql -U ttt -d ttt
+</code></pre>
 <p>Порт 5432 не публикуется на хост: доступ к базе возможен только из Docker-сети или через docker compose exec. Поверхность атаки при этом меньше.</p>
 <p>Основные таблицы: Users, UserProfiles, GameSessions, GameResults, ChatMessages. Целостность обеспечивается первичными и внешними ключами.</p>
 <h1>7. Резервное копирование и восстановление</h1>
 <p>Резервная копия базы данных:</p>
-<p>docker compose exec -T db pg_dump -U ttt -d ttt -F c &gt; backup.dump</p>
+<pre><code>docker compose exec -T db pg_dump -U ttt -d ttt -F c &amp;gt; backup.dump
+</code></pre>
 <p>Восстановление:</p>
-<p>docker compose exec -T db pg_restore -U ttt -d ttt -c &lt; backup.dump</p>
+<p>Проверка копии выполняется на отдельной базе ttt_restore:</p>
+<pre><code>docker compose exec -T db createdb -U ttt ttt_restore
+docker compose exec -T db pg_restore -U ttt -d ttt_restore -c &amp;lt; backup.dump
+docker compose exec -T db dropdb -U ttt ttt_restore
+</code></pre>
 <p>Рекомендуемый график приведён в таблице 4.</p>
 <p>Таблица 4 — График резервного копирования</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Периодичность</th>
@@ -367,7 +377,7 @@ docker compose down            # остановка и удаление конт
 <td>До следующего обновления</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Копии хранятся на другом носителе или сетевом ресурсе. Раз в месяц проверяется восстановление на тестовой базе.</p>
 <h1>8. Безопасность</h1>
 <p>– сменить пароль PostgreSQL по умолчанию;</p>
@@ -382,7 +392,7 @@ docker compose down            # остановка и удаление конт
 <h1>9. Диагностика</h1>
 <p>Данные приведены в таблице 5.</p>
 <p>Таблица 5 — Типовые проблемы</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Симптом</th>
@@ -422,7 +432,7 @@ docker compose down            # остановка и удаление конт
 <td>Восстановить из копии, проверить том</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h1>10. Обновление версии</h1>
 <ol>
 <li>

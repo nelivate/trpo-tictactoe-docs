@@ -90,7 +90,9 @@ h3 { margin: 28px 0 10px; color: #dddddd; font-size: 17px; }
 p { margin: 0 0 14px; }
 ul, ol { margin: 0 0 16px 22px; padding: 0; }
 li { margin: 4px 0; }
-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 13.5px; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 18px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.table-scroll table { min-width: 620px; margin: 0; }
 th, td { border: 1px solid var(--border); padding: 7px 9px; text-align: left; vertical-align: top; }
 th { background: var(--panel-2); color: #e4e4e4; font-weight: 600; }
 tr:nth-child(even) td { background: #232324; }
@@ -106,21 +108,22 @@ pre {
 }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
 :not(pre) > code { padding: 1px 4px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 3px; }
-img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 1px solid var(--border); }
+img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 0; }
 blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--border); color: var(--muted); }
 .downloads { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
 .downloads a { margin-right: 16px; }
 .footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
 @media (max-width: 760px) {
+  body { overflow-x: hidden; }
   .layout { display: block; }
-  .sidebar { width: auto; height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
+  .sidebar { width: auto; height: auto; max-height: 42vh; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
   .content-inner { padding: 28px 20px 60px; }
 }
 </style>
 </head>
 <body>
 <div class="layout">
-<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file" href="ТЗ.html"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" href="ПЗ.html"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file" class="active" href="ОП.html" aria-current="page"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file" href="РА.html"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file" href="ПМИ.html"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
+<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file" href="ТЗ.html"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" href="ПЗ.html"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file active" href="ОП.html" aria-current="page"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file" href="РА.html"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file" href="ПМИ.html"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
 <main class="content">
 <div class="content-inner">
 <div class="breadcrumb"><a href="../index.html">Документация</a> / Описание программы</div>
@@ -131,7 +134,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <p>цифровых технологий «Академия ТОП»</p>
 <p>Факультет Информационных систем и программирования</p>
 <p>Кафедра Разработка программного обеспечения</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>СОГЛАСОВАНО Руководитель проекта от кафедры, преподаватель _________ /Д. В. Золотухин / «___» ____________ 2026 г.</th>
@@ -144,13 +147,13 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h1>ОПИСАНИЕ ПРОГРАММЫ</h1>
 <h1>Программный комплекс «Крестики и нолики»</h1>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
-<th>Листов: 12</th>
+<th>Листов: 13</th>
 <th>Исполнители (разработчики): Студенты группы 9/3 – РПО 24/2 __________ / К. Д. Бызов/ «11» ноября 2026 г.</th>
 </tr>
 </thead>
@@ -160,8 +163,40 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>МОСКВА — 2026 г.</p>
+<h1>СОДЕРЖАНИЕ</h1>
+<h2>1. Общие сведения    3</h2>
+<p>1.1. Наименование программы 3</p>
+<p>1.2. Необходимое программное обеспечение    3</p>
+<p>1.3. Языки программирования 3</p>
+<p>1.4. Сведения о разработчике и об эксплуатации  3</p>
+<h2>2. Функциональное назначение 4</h2>
+<p>2.1. Назначение программы   4</p>
+<p>2.2. Классы решаемых задач  4</p>
+<p>2.3. Функциональные ограничения 4</p>
+<p>2.4. Условия применения 4</p>
+<h2>3. Описание логической структуры 5</h2>
+<p>3.1. Общий алгоритм функционирования    5</p>
+<p>3.2. Используемые методы    5</p>
+<p>3.3. Структура программы    5</p>
+<p>3.4. Функции составных частей   6</p>
+<p>3.5. Связи между компонентами   7</p>
+<p>3.6. Связи с другими программами    8</p>
+<p>3.7. Обработка ошибок   8</p>
+<h2>4. Используемые технические средства 10</h2>
+<h2>5. Вызов и загрузка  11</h2>
+<p>5.1. Способ вызова программы    11</p>
+<p>5.2. Входные точки в программу  11</p>
+<p>5.3. Порядок загрузки и завершения работы   11</p>
+<p>5.4. Резервное копирование  11</p>
+<h2>6. Входные данные    12</h2>
+<p>6.1. Характер и организация входных данных  12</p>
+<p>6.2. Предварительная подготовка 12</p>
+<p>6.3. Форматы и описание входных данных  12</p>
+<h2>7. Выходные данные   13</h2>
+<p>7.1. Характер и организация выходных данных 13</p>
+<p>7.2. Форматы и описание выходных данных 13</p>
 <h1>1. Общие сведения</h1>
 <h2>1.1. Наименование программы</h2>
 <p>Наименование программы: программный комплекс «Крестики и нолики». Обозначение: ПК-КН.01. Версия 1.0. Документ оформлен в соответствии с требованиями ГОСТ 19.402-78 «Описание программы».</p>
@@ -221,7 +256,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 </li>
 </ol>
 <h2>3.2. Используемые методы</h2>
-<p>Обмен выполняется по протоколу TCP/IP сообщениями JSON, разделёнными символом конца строки. На сервере применяются асинхронные методы System.Net.Sockets и async/await; обработка команд одной сессии сериализуется через CommandLock. Проверка победы выполняется только вокруг последнего хода по четырём направлениям. Фильтрация чата выполняется на сервере с учётом регистра, похожих символов и разделителей.</p>
+<p>Обмен выполняется по протоколу TCP/IP сообщениями JSON, разделёнными символом конца строки. На сервере применяются асинхронные методы System.Net.Sockets и async/await; обработка команд одной сессии сериализуется через CommandLock. Проверка победы выполняется только вокруг последнего хода по четырём направлениям. Фильтрация чата выполняется на сервере регистронезависимо, с учётом похожих символов и разделителей.</p>
 <h2>3.3. Структура программы</h2>
 <p>Логическая структура включает три уровня: представления (Flutter), бизнес-логики (C# / .NET 10) и хранения данных (PostgreSQL).</p>
 <p>Схема приведена на рисунке 1.</p>
@@ -230,7 +265,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <h2>3.4. Функции составных частей</h2>
 <p>Состав основных модулей приведён в таблице 1.</p>
 <p>Таблица 1 — Состав модулей программного комплекса</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Модуль</th>
@@ -245,19 +280,19 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Экраны авторизации, лобби, игрового поля 25 × 25, чата, профиля и результатов; обработка ввода пользователя.</td>
 </tr>
 <tr>
-<td>SocketClient</td>
+<td>GameClient</td>
 <td>Flutter / Dart</td>
 <td>Установка TCP-соединения, отправка JSON-команд, приём и разбор состояния, буферизация по символу «\n».</td>
 </tr>
 <tr>
 <td>ClientHandler</td>
 <td>C# / .NET 10</td>
-<td>Приём подключения, чтение JSON, определение типа команды, вызов бизнес-логики и отправка ответа.</td>
+<td>Приём подключения, чтение JSON, вызов GameServer.HandleMessageAsync и отправка ответа.</td>
 </tr>
 <tr>
 <td>AuthService</td>
 <td>C# / .NET 10</td>
-<td>Проверка логина и пароля, хеширование, привязка соединения к пользователю.</td>
+<td>Проверка логина и пароля; хеширование выполняет PasswordHasher, привязка соединения — GameServer.</td>
 </tr>
 <tr>
 <td>GameSession</td>
@@ -272,7 +307,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <tr>
 <td>ChatService</td>
 <td>C# / .NET 10</td>
-<td>Фильтрация текста: приведение к нижнему регистру, замена похожих символов и замена запрещённых выражений на «***».</td>
+<td>Фильтрация текста: регистронезависимый поиск, учёт похожих символов и разделителей, замена запрещённых выражений на «***».</td>
 </tr>
 <tr>
 <td>ScoreService</td>
@@ -285,11 +320,11 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Параметризованные запросы, транзакции, обновление статистики, чтение и запись профилей, сессий, результатов и сообщений.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2>3.5. Связи между компонентами</h2>
 <p>Основные типы сообщений приведены в таблице 2.</p>
 <p>Таблица 2 — Основные типы сообщений</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Тип</th>
@@ -356,7 +391,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <tr>
 <td>move</td>
 <td>клиент → сервер</td>
-<td>sessionId, row, column</td>
+<td>row, column (sessionId — из соединения)</td>
 <td>Выполнение хода</td>
 </tr>
 <tr>
@@ -367,7 +402,13 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 </tr>
 <tr>
 <td>chat</td>
-<td>клиент ↔ сервер</td>
+<td>клиент → сервер</td>
+<td>sessionId, text</td>
+<td>Отправка сообщения</td>
+</tr>
+<tr>
+<td>chat</td>
+<td>сервер → клиент</td>
 <td>sessionId, senderId, sender, text, at</td>
 <td>Сообщение чата</td>
 </tr>
@@ -408,13 +449,13 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Описание ошибки</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2>3.6. Связи с другими программами</h2>
 <p>Сервер использует PostgreSQL через Npgsql и не имеет прямого доступа к клиентским файлам. Docker Compose связывает контейнеры server и db в отдельную сеть; наружу публикуется только порт 5000. Клиент не требует установленного Flutter SDK в release-сборке. Взаимодействие с ОС ограничивается сетевыми сокетами, файлами журналов и томом pgdata.</p>
 <h2>3.7. Обработка ошибок</h2>
 <p>Основные сообщения об ошибках приведены в таблице 3. При ошибке состояние поля не изменяется, клиент получает код и текстовое описание.</p>
 <p>Таблица 3 — Сообщения об ошибках</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Код</th>
@@ -465,7 +506,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 </tr>
 <tr>
 <td>SES-02</td>
-<td>Сессия заполнена</td>
+<td>Сессия уже заполнена</td>
 <td>Создать новую сессию</td>
 </tr>
 <tr>
@@ -475,7 +516,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 </tr>
 <tr>
 <td>SES-04</td>
-<td>Вы уже в игровой сессии</td>
+<td>Вы уже находитесь в игровой сессии</td>
 <td>Выйти из текущей сессии</td>
 </tr>
 <tr>
@@ -539,23 +580,26 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Сократить пакет</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h1>4. Используемые технические средства</h1>
 <p>Серверный компьютер: процессор с частотой не менее 2 ГГц, оперативная память не менее 4 ГБ, свободное место на диске не менее 3 ГБ для образов Docker, базы данных и резервных копий, сетевой адаптер. Клиентские компьютеры: Windows 10/11, процессор 1,5 ГГц, ОЗУ 2 ГБ, свободное место 50 МБ, сетевой адаптер. Сеть: TCP/IP, локальная сеть с пропускной способностью не менее 100 Мбит/с.</p>
 <p>Программное обеспечение: Docker Engine 24+ и Docker Compose v2; контейнер server с .NET 10 Runtime; контейнер db с PostgreSQL 15+; клиентское приложение Flutter (сборка для Windows).</p>
 <h1>5. Вызов и загрузка</h1>
 <h2>5.1. Способ вызова программы</h2>
 <p>Запуск серверной части и PostgreSQL в Docker:</p>
-<p>docker compose up -d --build</p>
+<pre><code>docker compose up -d --build
+</code></pre>
 <p>Запуск клиентской части:</p>
-<p>ttt_client.exe</p>
+<pre><code>ttt_client.exe
+</code></pre>
 <h2>5.2. Входные точки в программу</h2>
 <p>Серверная входная точка — метод Main в Program.cs: он читает конфигурацию, инициализирует базу данных и запускает TcpListener на порту 5000. Клиентская входная точка — функция main() в main.dart, создающая MaterialApp и экран авторизации.</p>
 <h2>5.3. Порядок загрузки и завершения работы</h2>
 <p>Docker Compose поднимает контейнеры server и db. Схема базы данных создаётся автоматически при первом запуске, тестовые учётные записи — если их ещё нет. Клиент запрашивает адрес сервера и порт (по умолчанию localhost:5000), после чего открывает экран авторизации. Остановка контейнера server завершает активные сессии; результаты незавершённых партий не сохраняются.</p>
 <h2>5.4. Резервное копирование</h2>
 <p>Резервная копия базы данных создаётся командой:</p>
-<p>docker compose exec -T db pg_dump -U ttt -d ttt -F c &gt; backup.dump</p>
+<pre><code>docker compose exec -T db pg_dump -U ttt -d ttt -F c &amp;gt; backup.dump
+</code></pre>
 <p>Восстановление выполняется командой pg_restore. Копии хранятся вне тома pgdata; перед обновлением версии создаётся дополнительная копия.</p>
 <h1>6. Входные данные</h1>
 <h2>6.1. Характер и организация входных данных</h2>
@@ -565,7 +609,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <h2>6.3. Форматы и описание входных данных</h2>
 <p>Входные данные программы приведены в таблице 4.</p>
 <p>Таблица 4 — Входные данные</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Данные</th>
@@ -598,16 +642,17 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Создать сессию, подключиться, выйти из игры</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Пример запроса хода:</p>
-<p>{"type":"move","sessionId":17,"row":12,"column":5}</p>
+<pre><code>{&amp;quot;type&amp;quot;:&amp;quot;move&amp;quot;,&amp;quot;sessionId&amp;quot;:17,&amp;quot;row&amp;quot;:12,&amp;quot;column&amp;quot;:5}
+</code></pre>
 <h1>7. Выходные данные</h1>
 <h2>7.1. Характер и организация выходных данных</h2>
 <p>Выходные данные формируются сервером и передаются клиентам в виде JSON-сообщений: состояние поля, очередь хода, результат, сообщения чата и коды ошибок. Клиент не изменяет состояние самостоятельно.</p>
 <h2>7.2. Форматы и описание выходных данных</h2>
 <p>Выходные данные программы приведены в таблице 5.</p>
 <p>Таблица 5 — Выходные данные</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Данные</th>
@@ -648,10 +693,11 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>Код и описание ошибки</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>Пример подтверждённого состояния:</p>
-<p>{"type":"state","sessionId":17,"turn":2,
- "status":"active","winner":null}</p>
+<pre><code>{&amp;quot;type&amp;quot;:&amp;quot;state&amp;quot;,&amp;quot;sessionId&amp;quot;:17,&amp;quot;turn&amp;quot;:2,
+ &amp;quot;status&amp;quot;:&amp;quot;active&amp;quot;,&amp;quot;winner&amp;quot;:null}
+</code></pre>
 <p>Поле board в примере опущено: это массив из 25 строк по 25 целых чисел (0 — свободно, 1 — X, 2 — O). При обрыве соединения клиент показывает сообщение локально и возвращается на экран авторизации; автоматическое переподключение к начатой партии не выполняется.</p>
 <div class="downloads"><a href="../pdf/Описание_программы_Крестики_и_нолики_Бызов.pdf">PDF</a><a href="../docx/Описание_программы_Крестики_и_нолики_Бызов.docx">DOCX</a></div>
 </div>

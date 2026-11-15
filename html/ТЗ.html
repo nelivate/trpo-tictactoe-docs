@@ -90,7 +90,9 @@ h3 { margin: 28px 0 10px; color: #dddddd; font-size: 17px; }
 p { margin: 0 0 14px; }
 ul, ol { margin: 0 0 16px 22px; padding: 0; }
 li { margin: 4px 0; }
-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 13.5px; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin: 18px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.table-scroll table { min-width: 620px; margin: 0; }
 th, td { border: 1px solid var(--border); padding: 7px 9px; text-align: left; vertical-align: top; }
 th { background: var(--panel-2); color: #e4e4e4; font-weight: 600; }
 tr:nth-child(even) td { background: #232324; }
@@ -106,21 +108,22 @@ pre {
 }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
 :not(pre) > code { padding: 1px 4px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 3px; }
-img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 1px solid var(--border); }
+img { display: block; max-width: 100%; height: auto; margin: 18px auto; border: 0; }
 blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--border); color: var(--muted); }
 .downloads { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
 .downloads a { margin-right: 16px; }
 .footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
 @media (max-width: 760px) {
+  body { overflow-x: hidden; }
   .layout { display: block; }
-  .sidebar { width: auto; height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
+  .sidebar { width: auto; height: auto; max-height: 42vh; position: static; border-right: 0; border-bottom: 1px solid var(--border); }
   .content-inner { padding: 28px 20px 60px; }
 }
 </style>
 </head>
 <body>
 <div class="layout">
-<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file" class="active" href="ТЗ.html" aria-current="page"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" href="ПЗ.html"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file" href="ОП.html"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file" href="РА.html"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file" href="ПМИ.html"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
+<aside class="sidebar"><div class="brand">Документация</div><div class="project">Крестики и нолики</div><div class="section">Документы</div><a class="file active" href="ТЗ.html" aria-current="page"><span class="code">ТЗ.001.2026</span><span class="name">Техническое задание</span></a><a class="file" href="АПО.html"><span class="code">АПО.001.2026</span><span class="name">Анализ предметной области</span></a><a class="file" href="ПЗ.html"><span class="code">ПЗ.001.2026</span><span class="name">Пояснительная записка</span></a><a class="file" href="ОП.html"><span class="code">ОП.001.2026</span><span class="name">Описание программы</span></a><a class="file" href="ОПП.html"><span class="code">ОПП.001.2026</span><span class="name">Описание применения</span></a><a class="file" href="ФО.html"><span class="code">ФО.001.2026</span><span class="name">Формуляр</span></a><a class="file" href="РП.html"><span class="code">РП.001.2026</span><span class="name">Руководство пользователя</span></a><a class="file" href="РА.html"><span class="code">РА.001.2026</span><span class="name">Руководство администратора</span></a><a class="file" href="РТО.html"><span class="code">РТО.001.2026</span><span class="name">Руководство по техническому обслуживанию</span></a><a class="file" href="САП.html"><span class="code">САП.001.2026</span><span class="name">Схема алгоритма и программы</span></a><a class="file" href="ПМИ.html"><span class="code">ПМИ.001.2026</span><span class="name">Программа и методика испытаний</span></a><div class="meta">Бызов К. Д.<br>9/3 – РПО 24/2</div></aside>
 <main class="content">
 <div class="content-inner">
 <div class="breadcrumb"><a href="../index.html">Документация</a> / Техническое задание</div>
@@ -131,7 +134,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <p>цифровых технологий «Академия ТОП»</p>
 <p>Факультет Информационных систем и программирования</p>
 <p>Кафедра Разработка программного обеспечения</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>СОГЛАСОВАНО Руководитель проекта от кафедры, преподаватель _________ /Д. В. Золотухин / «___» ____________ 2026 г.</th>
@@ -144,11 +147,11 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h1>ТЕХНИЧЕСКОЕ ЗАДАНИЕ</h1>
 <p>на разработку программного комплекса</p>
 <h1>«Крестики и нолики»</h1>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Листов: 18</th>
@@ -161,7 +164,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>МОСКВА — 2026 г.</p>
 <h1>1. Введение</h1>
 <p>Наименование программы: клиент-серверная программа «Крестики и нолики» (далее — Программа). Область применения: организация сетевой партии двух игроков на персональных компьютерах в локальной сети. Программа реализует расширенный вариант классической игры: поле 25 × 25, победа — пять одинаковых символов подряд по горизонтали, вертикали или диагонали.</p>
@@ -186,8 +189,9 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <p>– автоматический подсчёт баллов: 3 за победу, 1 за ничью, 0 за поражение;</p>
 <p>– отображение итогового счёта и обновление статистики профиля;</p>
 <p>– корректное завершение партии при выходе или потере соединения одного из игроков.</p>
+<p>В объём версии 1.0 не входят мини-игра выбора первого хода, список друзей, приглашения и панель администратора.</p>
 <p>Входными данными являются: учётные данные пользователя, команды создания и подключения к сессии, координаты выбранной клетки, сообщения чата, команда выхода. Выходными данными являются: состояние игрового поля, очередь хода, сообщения чата, результат партии, баллы и статистика профиля, коды ошибок.</p>
-<p>Временные характеристики: передача изменений игрового состояния между сервером и клиентами должна выполняться в режиме реального времени; время реакции сервера на ход в локальной сети не должно превышать 1 секунды.</p>
+<p>Временные характеристики: передача изменений игрового состояния между сервером и клиентами должна выполняться в режиме реального времени; время от отправки хода до отображения у второго клиента в локальной сети не должно превышать 1 секунды.</p>
 <h2>4.2. Требования к надёжности</h2>
 <p>Программа должна блокировать некорректные действия пользователя: выбор занятой клетки, ход не в свою очередь, координаты вне диапазона, попытку продолжить завершённую партию, пустое или слишком длинное сообщение чата. На каждое такое действие должно выдаваться информационное сообщение с кодом ошибки, а состояние поля не должно изменяться.</p>
 <p>Сервер должен обеспечивать одновременное подключение нескольких пользователей и нескольких независимых игровых сессий. Ошибка или выход одного клиента не должны влиять на другие сессии. При потере соединения партия корректно завершается, а соперник получает уведомление.</p>
@@ -200,7 +204,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <h2>4.5. Требования к информационной и программной совместимости</h2>
 <p>Клиентская часть предназначена для операционных систем Windows 10/11 x64; предусмотрена также веб-сборка Flutter. Серверная часть работает в Linux-контейнере Docker; на Windows используется Docker Desktop с Linux-контейнерами, на Linux — Docker Engine.</p>
 <p>Технологический стек: сервер — C# / .NET 10; клиент — Flutter / Dart; база данных — PostgreSQL 15 и выше; обмен данными — TCP/IP, JSON-сообщения, разделённые символом перевода строки; развёртывание — Docker Compose.</p>
-<p>Программа должна корректно обрабатывать кириллицу в UTF-8, не требовать установки Flutter SDK на компьютер пользователя (release-сборка содержит необходимые библиотеки) и не публиковать порт PostgreSQL во внешнюю сеть.</p>
+<p>Сервер принимает TCP-подключения на порту 5000. Программа должна корректно обрабатывать кириллицу в UTF-8, не требовать установки Flutter SDK на компьютер пользователя (release-сборка содержит необходимые библиотеки) и не публиковать порт PostgreSQL во внешнюю сеть.</p>
 <h1>5. Требования к программной документации</h1>
 <p>В полный комплект программной документации должны входить:</p>
 <p>– техническое задание;</p>
@@ -221,7 +225,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <h1>6. Стадии и этапы разработки</h1>
 <p>Стадии и этапы разработки приведены в таблице 1.</p>
 <p>Таблица 1 — Стадии и этапы разработки</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>№</th>
@@ -256,7 +260,7 @@ blockquote { margin: 16px 0; padding: 0 16px; border-left: 2px solid var(--borde
 <td>30.11–04.12</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h1>7. Порядок контроля и приёмки</h1>
 <p>Контроль и приёмка Программы проводятся в следующем порядке:</p>
 <p>– запуск серверной части и базы данных через Docker Compose;</p>
